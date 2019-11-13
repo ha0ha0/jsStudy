@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button{width:100px;height: 50px;background: #336699;font-size:14px;border-radius: 5px;margin-bottom: 30px;border:0;color: #fff;}
+    </style>
+</head>
+<body>
+    <button type="button" onclick="randomGo(45, 1)">button</button>
+    <div id="randomNumber"></div>
+    <script>
+        function randomGo(max, min){
+            //1.랜덤번호 생성
+            //2.중복값없이 7개 숫자뽑기
+            let randomNum = '';
+            let numArray = [];
+            let numIndex = 0;
+            
+            while(numArray.length < 7){
+                randomNum = Math.floor(Math.random()*(max-min+1))+min; 
+                if(numArray.indexOf(randomNum) == -1){
+                    numArray[numIndex] = randomNum;
+                    numIndex++;
+                };
+            };
+            
+            document.getElementById('randomNumber').innerText = numArray;
+        };
+    </script>
+</body>
+</html>
